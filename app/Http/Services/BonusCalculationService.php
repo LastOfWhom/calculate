@@ -32,7 +32,7 @@ class BonusCalculationService
         }
 
         return [
-            'total_bonus' => (int) $bonus,
+            'total_bonus' => $bonus,
             'applied_rules' => $applied,
         ];
     }

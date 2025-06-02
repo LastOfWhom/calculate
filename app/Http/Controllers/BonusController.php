@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Dto\BonusRequestDto;
 use App\Http\Services\BonusCalculationService;
 use App\Models\Bonus;
 use Illuminate\Http\JsonResponse;
@@ -16,17 +17,17 @@ class BonusController extends Controller
      */
     public function calculate(Request $request, BonusCalculationService $service): JsonResponse
     {
-        $validated = $request->validate([
-            'transaction_amount' => 'required|numeric',
-            'timestamp' => 'required|date',
-            'customer_status' => 'required|in:regular,vip'
-        ]);
+        $dto = new BonusRequestDTO(
+            $request->input('transaction_amount'),
+            $request->input('timestamp'),
+            $request->input('customer_status')
+        );
 
         return response()->json(
             $service->calculate(
-                $validated['transaction_amount'],
-                $validated['timestamp'],
-                $validated['customer_status']
+                $dto->transactionAmount,
+                $dto->timestamp,
+                $dto->customerStatus
             )
         );
     }

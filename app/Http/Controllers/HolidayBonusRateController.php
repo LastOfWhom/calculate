@@ -24,7 +24,6 @@ class HolidayBonusRateController implements BonusCalculationService
         return [$bonus, 0];
     }
 
-
     /**
      * @return string
      */
