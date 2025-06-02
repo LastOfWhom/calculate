@@ -7,6 +7,7 @@ use app\Http\Dto\Bonus\BonusRequestDto;
 use app\Http\Services\Bonus\BonusCalculationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Throwable;
 
 class BonusController extends Controller
 {
@@ -17,18 +18,25 @@ class BonusController extends Controller
      */
     public function calculate(Request $request, BonusCalculationService $service): JsonResponse
     {
-        $dto = new BonusRequestDTO(
-            $request->input('transaction_amount'),
-            $request->input('timestamp'),
-            $request->input('customer_status')
-        );
+        try {
+            $dto = new BonusRequestDTO(
+                $request->input('transaction_amount'),
+                $request->input('timestamp'),
+                $request->input('customer_status')
+            );
 
-        return response()->json(
-            $service->calculate(
-                $dto->transactionAmount,
-                $dto->timestamp,
-                $dto->customerStatus
-            )
-        );
+            return response()->json(
+                $service->calculate(
+                    $dto->transactionAmount,
+                    $dto->timestamp,
+                    $dto->customerStatus
+                )
+            );
+        }catch (Throwable $ex){
+            return response()->json([
+                'code' => $ex->getCode(),
+                'error' => $ex->getMessage()
+            ], 400);
+        }
     }
 }
