@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\BonusCalculateInterface;
+namespace App\Http\Interface;
 
-interface BonusCalculationService
+interface BonusCalculateInterface
 {
     /**
      * @param int $bonus

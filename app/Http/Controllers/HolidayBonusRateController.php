@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\BonusCalculateInterface\BonusCalculationService;
+use App\Http\Interface\BonusCalculateInterface;
 use DateTime;
 
-class HolidayBonusRateController implements BonusCalculationService
+class HolidayBonusRateController implements BonusCalculateInterface
 {
     /**
      * @param int $bonus

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\BonusCalculateInterface\BonusCalculationService;
+use App\Http\Interface\BonusCalculateInterface;
 
-class BonusDefaultRateController implements BonusCalculationService
+class BonusDefaultRateController implements BonusCalculateInterface
 {
     /**
      * @param int $bonus
