@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\BonusDefaultRateController;
-use App\Http\Controllers\HolidayBonusRateController;
-use App\Http\Controllers\VipBonusRateController;
-use App\Http\Services\BonusCalculationService;
+use app\Http\Controllers\Bonus\BonusDefaultRateController;
+use app\Http\Controllers\Bonus\HolidayBonusRateController;
+use app\Http\Controllers\Bonus\VipBonusRateController;
+use app\Http\Services\Bonus\BonusCalculationService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

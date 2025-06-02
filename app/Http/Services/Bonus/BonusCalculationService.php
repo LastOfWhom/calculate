@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services;
+namespace app\Http\Services\Bonus;
 
 class BonusCalculationService
 {

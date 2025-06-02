@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers\Bonus;
 
-use App\Http\Dto\BonusRequestDto;
-use App\Http\Services\BonusCalculationService;
-use App\Models\Bonus;
+use App\Http\Controllers\Controller;
+use app\Http\Dto\Bonus\BonusRequestDto;
+use app\Http\Services\Bonus\BonusCalculationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

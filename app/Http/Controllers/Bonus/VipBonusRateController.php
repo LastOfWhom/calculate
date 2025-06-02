@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers\Bonus;
 
-use App\Http\Interface\BonusCalculateInterface;
+use app\Http\Interface\Bonus\BonusCalculateInterface;
 
 class VipBonusRateController implements BonusCalculateInterface
 {

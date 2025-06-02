@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Interface;
+namespace app\Http\Interface\Bonus;
 
 interface BonusCalculateInterface
 {

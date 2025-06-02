@@ -2,7 +2,7 @@
 
 namespace App\Validators;
 
-use App\Http\Dto\BonusRequestDto;
+use app\Http\Dto\Bonus\BonusRequestDto;
 use Illuminate\Support\Facades\Validator;
 
 class BonusRequestValidator

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Dto;
+namespace app\Http\Dto\Bonus;
 
 class BonusRequestDto
 {

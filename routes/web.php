@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BonusController;
+use app\Http\Controllers\Bonus\BonusController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
