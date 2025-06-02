@@ -28,7 +28,7 @@ class BonusCalculationService
             if($added > 0){
                 $applied[] = [
                     'rule' => $rule->getName(),
-                    'bonus' => (int) $added
+                    'bonus' => round($added, 1),
                 ];
             }
             $bonus = $newBonus;
