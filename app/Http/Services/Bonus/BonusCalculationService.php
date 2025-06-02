@@ -23,12 +23,15 @@ class BonusCalculationService
         $applied = [];
 
         foreach ($this->rules as $rule) {
-            [$newBonus, $added] = $rule->apply($amount, $data);
+            [$newBonus, $added] = $rule->apply($bonus, $data);
 
             if($added > 0){
-                $applied[] = ['rule' => $rule->getName(), 'bonus' => (int) $added];
+                $applied[] = [
+                    'rule' => $rule->getName(),
+                    'bonus' => (int) $added
+                ];
             }
-            $bonus += $newBonus;
+            $bonus = $newBonus;
         }
 
         return [

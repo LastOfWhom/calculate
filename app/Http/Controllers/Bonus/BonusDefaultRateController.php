@@ -13,7 +13,7 @@ class BonusDefaultRateController implements BonusCalculateInterface
      */
     public function apply(int $bonus, array $data): array
     {
-        $currentBonus = floor($bonus / 10);
+        $currentBonus = floor($data['amount'] / 10);
 
         return [$currentBonus + $bonus , $currentBonus];
     }

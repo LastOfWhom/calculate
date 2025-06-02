@@ -18,6 +18,7 @@ class HolidayBonusRateController implements BonusCalculateInterface
         $isHoliday = in_array($date->format('Y-m-d'), config('bonus_rule.holidays'));
         if ($isWeekend || $isHoliday) {
             $currentBonus = $bonus;
+
             return [$bonus * 2, $currentBonus];
         }
 

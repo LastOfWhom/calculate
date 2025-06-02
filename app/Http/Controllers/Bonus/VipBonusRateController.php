@@ -15,7 +15,8 @@ class VipBonusRateController implements BonusCalculateInterface
     {
         if ($data['status'] === 'vip') {
             $currentBonus = $bonus * 0.4;
-            return [$currentBonus + $bonus, $bonus];
+
+            return [$bonus + $currentBonus, $currentBonus];
         }
         return [$bonus, 0];
     }
