@@ -7,7 +7,7 @@
 ### 1. Клонируй репозиторий:
 
 ```bash
-git clone https://github.com/your-username/bonus-calculator-api.git
+https://github.com/LastOfWhom/calculate.git
 cd bonus-calculator-api
 ```
 ### 2. Запусти контейнер:
