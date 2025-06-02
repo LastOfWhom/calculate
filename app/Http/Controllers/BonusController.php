@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\BonusCalculationService;
 use App\Models\Bonus;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class BonusController extends Controller
 {
-
-    public function calculate(Request $request, BonusCalculationService $service) {
+    /**
+     * @param Request $request
+     * @param BonusCalculationService $service
+     * @return JsonResponse
+     */
+    public function calculate(Request $request, BonusCalculationService $service): JsonResponse
+    {
         $validated = $request->validate([
             'transaction_amount' => 'required|numeric',
             'timestamp' => 'required|date',

@@ -7,11 +7,11 @@ use App\Http\Controllers\BonusCalculateInterface\BonusCalculationService;
 class VipBonusRateController implements BonusCalculationService
 {
     /**
-     * @param $bonus
-     * @param $data
+     * @param int $bonus
+     * @param array $data
      * @return array
      */
-    public function apply($bonus, $data): array
+    public function apply(int $bonus, array $data): array
     {
         if ($data['status'] === 'vip') {
             $currentBonus = $bonus * 0.4;
@@ -20,7 +20,10 @@ class VipBonusRateController implements BonusCalculationService
         return [$bonus, 0];
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return 'vip_boost';
     }

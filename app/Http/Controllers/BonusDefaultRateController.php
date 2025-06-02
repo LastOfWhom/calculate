@@ -6,13 +6,19 @@ use App\Http\Controllers\BonusCalculateInterface\BonusCalculationService;
 
 class BonusDefaultRateController implements BonusCalculationService
 {
-    public function apply($bonus, $data): array
+    /**
+     * @param int $bonus
+     * @param array $data
+     * @return array
+     */
+    public function apply(int $bonus, array $data): array
     {
         $currentBonus = floor($bonus / 10);
+
         return [$currentBonus + $bonus , $currentBonus];
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'base rate';
     }

@@ -18,8 +18,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(BonusCalculationService::class, function ($app) {
             return new BonusCalculationService([
                 new BonusDefaultRateController(),
-                new VipBonusRateController(),
                 new HolidayBonusRateController(),
+                new VipBonusRateController()
             ]);
         });
     }

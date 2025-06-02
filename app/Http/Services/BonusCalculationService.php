@@ -4,10 +4,19 @@ namespace App\Http\Services;
 
 class BonusCalculationService
 {
-    public function __construct(private array $rules) {}
+    /**
+     * @param array $rules
+     */
+    public function __construct(private readonly array $rules) {}
 
 
-    public function calculate($amount, $timestamp, $status)
+    /**
+     * @param int $amount
+     * @param string $timestamp
+     * @param string $status
+     * @return array
+     */
+    public function calculate(int $amount, string $timestamp, string $status): array
     {
         $data = compact('amount', 'timestamp', 'status');
         $bonus = 0;
@@ -21,6 +30,7 @@ class BonusCalculationService
             }
             $bonus += $newBonus;
         }
+
         return [
             'total_bonus' => (int) $bonus,
             'applied_rules' => $applied,

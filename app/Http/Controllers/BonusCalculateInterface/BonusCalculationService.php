@@ -4,6 +4,15 @@ namespace App\Http\Controllers\BonusCalculateInterface;
 
 interface BonusCalculationService
 {
-    public function apply($bonus, $data): array ;
-    public function getName();
+    /**
+     * @param int $bonus
+     * @param array $data
+     * @return array
+     */
+    public function apply(int $bonus, array $data): array ;
+
+    /**
+     * @return string
+     */
+    public function getName(): string;
 }
