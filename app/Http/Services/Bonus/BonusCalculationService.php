@@ -2,12 +2,26 @@
 
 namespace app\Http\Services\Bonus;
 
+use app\Http\Interface\Bonus\BonusCalculateInterface;
+use Mockery\Exception;
+
 class BonusCalculationService
 {
     /**
-     * @param array $rules
+     * @var BonusCalculateInterface[]
      */
-    public function __construct(private readonly array $rules) {}
+    private array $strategies;
+
+    /**
+     * @param BonusCalculateInterface[] $strategies
+     */
+    public function __construct(array $strategies = [])
+    {
+        $this->strategies = array_filter($strategies, fn($strategy) => $strategy instanceof BonusCalculateInterface);
+        if (empty($this->strategies)) {
+            throw new Exception('Передается не тот класс');
+        }
+    }
 
 
     /**
@@ -22,12 +36,12 @@ class BonusCalculationService
         $bonus = 0;
         $applied = [];
 
-        foreach ($this->rules as $rule) {
-            [$newBonus, $added] = $rule->apply($bonus, $data);
+        foreach ($this->strategies as $strategy) {
+            [$newBonus, $added] = $strategy->apply($bonus, $data);
 
             if($added > 0){
                 $applied[] = [
-                    'rule' => $rule->getName(),
+                    'rule' => $strategy->getName(),
                     'bonus' => round($added, 1),
                 ];
             }
