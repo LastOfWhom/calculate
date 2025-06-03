@@ -18,6 +18,9 @@ class BonusDefaultRateController implements BonusCalculateInterface
         return [$currentBonus + $bonus , $currentBonus];
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return 'base rate';

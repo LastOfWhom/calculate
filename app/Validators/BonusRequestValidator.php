@@ -4,6 +4,7 @@ namespace App\Validators;
 
 use app\Http\Dto\Bonus\BonusRequestDto;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class BonusRequestValidator
 {
@@ -15,6 +16,11 @@ class BonusRequestValidator
         //
     }
 
+    /**
+     * @param BonusRequestDto $dto
+     * @return void
+     * @throws ValidationException
+     */
     public static function validate(BonusRequestDTO $dto): void
     {
         $data = [
@@ -26,7 +32,7 @@ class BonusRequestValidator
         Validator::make($data, [
             'transaction_amount' => 'required|numeric',
             'timestamp' => 'required|date',
-            'customer_status' => 'required|in:regular,vip',
+            'customer_status' => 'required|string',
         ])->validate();
     }
 }
