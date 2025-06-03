@@ -23,3 +23,5 @@ docker compose exec app composer install
 ```
 docker compose exec app php artisan key:generate
 ```
+
+### Данные для изменения расчётов хранятся в файле конфигурации config/bonus/bonus_rule.
