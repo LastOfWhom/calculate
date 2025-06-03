@@ -8,20 +8,22 @@
 
 ```bash
 https://github.com/LastOfWhom/calculate.git
-cd bonus-calculator-api
+cd calculate
 ```
+### P.S. Переключись на develop ветку. Весь проект находится там
+
 ### 2. Запусти контейнер:
 ```
 docker compose up -d --build
 ```
 ### 3. Установи зависимости (в контейнере):
 ```
-docker compose exec app composer install
-``` либо вместо app поставь id контейнера
+docker exec -it {id контейнера} bash
+composer install
 ```
-### 4. Сгенерируй ключ приложения
+### 4. Запусти сервер
 ```
-docker compose exec app php artisan key:generate
+php artisan serve --host=0.0.0.0 --port=8000
 ```
 
 ### Данные для изменения расчётов хранятся в файле конфигурации config/bonus/bonus_rule.
