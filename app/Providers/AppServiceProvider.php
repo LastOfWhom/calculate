@@ -16,11 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(BonusCalculationService::class, function ($app) {
-            return new BonusCalculationService([
-                new BonusDefaultRateController(),
-                new HolidayBonusRateController(),
-                new VipBonusRateController()
-            ]);
+            $rules = array_map(fn($class) => new $class, config('bonus.strategy.strategies'));
+
+            return new BonusCalculationService($rules);
         });
     }
 
